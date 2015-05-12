@@ -1,10 +1,12 @@
 {
   "name": "free-range-app-utils",
-  "version": "0.0.5",
+  "version": "0.2.1",
   "description": "Utilities for building free-range apps.",
   "main": "main.js",
   "scripts": {
-    "test": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+    "test:services": "karma start ./test/services.karma.conf.js --single-run",
+    "test": "npm run test:services && istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec",
+    "report-coverage": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "repository": {
     "type": "git",
@@ -20,10 +22,19 @@
     "chai": "^1.9.2",
     "coveralls": "^2.11.2",
     "istanbul": "^0.3.2",
+    "jasmine-core": "^2.1.2",
+    "karma": "^0.12.28",
+    "karma-jasmine": "^0.3.1",
+    "karma-jasmine-ajax": "git://github.com/IDCubed/karma-jasmine-ajax#034132800e2eb9118be5e7b53ef59a69e3bd3745",
     "mocha": "^1.21.5",
-    "request": "^2.45.0"
+    "q": "^1.1.2",
+    "request": "^2.45.0",
+    "sinon": "^1.12.2",
+    "sinon-chai": "^2.6.0",
+    "superagent": "^1.2.0"
   },
   "dependencies": {
+    "cors": "^2.5.2",
     "express": "^4.9.7",
     "serve-static": "^1.6.4",
     "streamifier": "^0.1.0",

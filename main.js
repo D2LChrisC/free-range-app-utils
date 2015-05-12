@@ -9,5 +9,6 @@ appConfigBuilder.html = htmlAppConfigBuilder;
 
 module.exports = {
     localAppResolver: require('./src/localAppResolver'),
+    appResolverUpdater: require('./src/appResolverUpdater'),
     appConfigBuilder: appConfigBuilder
 };
